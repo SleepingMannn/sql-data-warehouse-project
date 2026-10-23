@@ -25,7 +25,7 @@ BEGIN
 	DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME;
 	BEGIN TRY
     SET @batch_start_time = GETDATE();
-		  PRINT '==================================================================';
+		PRINT '==================================================================';
 	  	PRINT 'Loading Bronze Layer';
 	  	PRINT '==================================================================';
 
