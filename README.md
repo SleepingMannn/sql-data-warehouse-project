@@ -23,7 +23,7 @@ cleaned and combined into a single data model that is ready for analysis.
 
 The project follows the **Medallion Architecture**:
 
-<img width="5445" height="2793" alt="High_Level_Architecture" src="https://github.com/user-attachments/assets/dc86e4e8-1c76-4942-bb78-f83f87eed332" />
+![Data Architecture](docs/data_architecture.png)
 
 | Layer | Purpose |
 |--------|---------|
@@ -38,7 +38,32 @@ The project follows the **Medallion Architecture**:
 - Git / GitHub
 - Figma (diagrams)
 
+## Repository Structure
 
+```
+.
+├── datasets/              # source CSV files (CRM and ERP)
+├── docs/                  # diagrams, data catalog, naming conventions
+├── scripts/
+│   ├── init_database.sql  # creates the database and the bronze/silver/gold schemas
+│   ├── bronze/            # ddl_bronze.sql, proc_load_bronze.sql
+│   ├── silver/            # ddl_silver.sql, proc_load_silver.sql
+│   └── gold/              # ddl_gold.sql (views)
+├── tests/                 # data quality checks for silver and gold
+├── LICENSE
+└── README.md
+```
+
+## How to Run
+
+1. Install SQL Server and SSMS.
+2. Save the `datasets/` folder on your computer and update the six file paths
+   in `scripts/bronze/proc_load_bronze.sql`.
+3. Run `scripts/init_database.sql` (**warning:** it drops and recreates the `DataWarehouse` database).
+4. Run `scripts/bronze/ddl_bronze.sql` and `scripts/bronze/proc_load_bronze.sql`, then `EXEC bronze.load_bronze;`
+5. Run `scripts/silver/ddl_silver.sql` and `scripts/silver/proc_load_silver.sql`, then `EXEC silver.load_silver;`
+6. Run `scripts/gold/ddl_gold.sql`.
+7. Run the checks from the `tests/` folder.
 
 ## What I Did Myself
 *Will be completed when the project is finished.*
