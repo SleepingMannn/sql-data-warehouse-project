@@ -41,15 +41,10 @@ The project follows the **Medallion Architecture**:
 
 
 ## What I Did Myself
-
-<!-- Fill this in as you go. Examples: -->
-- Rewrote the script headers and documentation in my own words
-- <your addition, e.g. extra data quality checks>
-- <your addition, e.g. additional analytical queries>
+*Will be completed when the project is finished.*
 
 ## What I Learned
-
-<!-- 3-5 sentences in your own words: ETL, data modeling, data cleaning, working with Git. -->
+*Will be completed when the project is finished.*
 
 ## License
 
