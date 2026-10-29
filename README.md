@@ -24,6 +24,7 @@ cleaned and combined into a single data model that is ready for analysis.
 The project follows the **Medallion Architecture**:
 
 ![Data Architecture](docs/data_architecture.png)
+*Diagram redrawn by me in Figma, based on the course.*
 
 | Layer | Purpose |
 |--------|---------|
