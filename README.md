@@ -76,3 +76,6 @@ The project follows the **Medallion Architecture**:
 
 This project is licensed under the [MIT License](LICENSE).
 The original work is Copyright (c) 2024 Baraa Khatib Salkini.
+
+## Next Steps
+- Build a dashboard (Power BI or Excel) on top of the Gold layer.
