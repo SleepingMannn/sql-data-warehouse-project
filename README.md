@@ -3,7 +3,7 @@
 [![Built with Data With Baraa](https://img.shields.io/badge/Built_with-Data_With_Baraa-F5B301?style=for-the-badge)](https://github.com/DataWithBaraa/sql-data-warehouse-project)
 
 > **📚 Learning project**
-
+>
 > This is a learning project built while following the free *SQL Data Warehouse*
 > course by **Baraa Khatib Salkini** ([Data With Baraa](https://github.com/DataWithBaraa/sql-data-warehouse-project)).
 >
