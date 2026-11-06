@@ -42,7 +42,7 @@ The project follows the **Medallion Architecture**:
 ## Repository Structure
 
 ```
-.
+sql-data-warehouse-project
 ├── datasets/              # source CSV files (CRM and ERP)
 ├── docs/                  # diagrams, data catalog, naming conventions
 ├── scripts/
