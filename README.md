@@ -4,7 +4,7 @@
 
 > **📚 Learning project**
 >
-> This is a learning project built while following the free *SQL Data Warehouse*
+> This is a learning project built while following the free *SQL Full Course*
 > course by **Baraa Khatib Salkini** ([Data With Baraa](https://github.com/DataWithBaraa/sql-data-warehouse-project)).
 >
 > - Original repository: https://github.com/DataWithBaraa/sql-data-warehouse-project
