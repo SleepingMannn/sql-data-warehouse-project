@@ -15,13 +15,7 @@
 
 ## Overview
 
-**Scope:** latest dataset only (no historization); two source systems (CRM and ERP) loaded from CSV files.
-
-| Stage | Approach |
-|-------|----------|
-| Extract | Pull, full extraction, file parsing (CSV files via `BULK INSERT`) |
-| Transform | Data cleaning (duplicates, unwanted spaces, missing and invalid values, type casting), standardization, derived columns, business rules, integration of CRM and ERP data |
-| Load | Batch processing, full load (truncate and insert), SCD Type 1 (overwrite, no history) |
+Building a modern data warehouse with SQL Server: raw sales data from two source systems (CRM and ERP) is loaded, cleaned and combined into a star schema ready for analysis.
 
 ## Architecture
 
@@ -50,11 +44,19 @@ The Gold layer is a star schema: one fact table (`fact_sales`) and two dimension
 ![Data Model](docs/data_model.png)
 *Diagram redrawn by me in Figma, based on the course.*
 
-More diagrams are in the docs/ folder.
+## ETL Approach
+
+| Stage | Approach |
+|-------|----------|
+| Extract | Pull extraction, full extraction, file parsing (CSV files via `BULK INSERT`) |
+| Transform | Data cleaning (duplicates, unwanted spaces, missing and invalid values, type casting), standardization, derived columns, business rules, integration of CRM and ERP data |
+| Load | Batch processing, full load (truncate and insert), SCD Type 1 (overwrite, no history) |
+
+More diagrams are in the `docs/` folder.
 
 ## Tech Stack
 
-- SQL Server 2022 or newer
+- SQL Server 2017 or newer
 - SQL Server Management Studio (SSMS)
 - Git / GitHub
 - Figma (diagrams)
@@ -72,12 +74,14 @@ sql-data-warehouse-project/
 │   ├── bronze/            # loads the raw files
 │   ├── silver/            # cleans and prepares the data
 │   └── gold/              # builds the tables for analysis (views)
-└── tests/                 # data quality checks for silver and gold data
+├── tests/                 # data quality checks for silver and gold data
+├── LICENSE
+└── README.md
 ```
 
 ## How to Run
 
-1. Install SQL Server (2022 or newer, required for `DATETRUNC()`) and SSMS.
+1. Install SQL Server (2017 or newer) and SSMS.
 2. Save the `datasets/` folder on your computer and update the six file paths
    in `scripts/bronze/proc_load_bronze.sql`.
 3. Run `scripts/init_database.sql` (**warning:** it drops and recreates the `DataWarehouse` database).
@@ -103,7 +107,7 @@ I now understand they make ETL runs easy to monitor and debug, and I plan to kee
 
 ## Next Steps
 
-Next: exploratory data analysis on the Gold layer in sql-data-analytics-project.
+Next: exploratory data analysis on the Gold layer in [sql-data-analytics-project](https://github.com/SleepingMannn/sql-data-analytics-project).
 
 ## License
 
