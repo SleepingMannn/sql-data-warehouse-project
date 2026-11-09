@@ -4,8 +4,8 @@
 
 > **📚 Learning project**
 >
-> This is a learning project built while following the free *SQL Full Course*
-> course by **Baraa Khatib Salkini** ([Data With Baraa](https://github.com/DataWithBaraa/sql-data-warehouse-project)).
+> This is a learning project built while following the Data Warehouse project
+> from the free 30-hour *SQL Full Course* by **Baraa Khatib Salkini** ([Data With Baraa](https://github.com/DataWithBaraa/sql-data-warehouse-project)).
 >
 > - Original repository: https://github.com/DataWithBaraa/sql-data-warehouse-project
 > - Video tutorial: https://youtu.be/SSKVgrwhzus?si=jnNL6c97yBya66NP
@@ -15,17 +15,19 @@
 
 ## Overview
 
-Building a modern data warehouse with SQL Server, including ETL processes and data modeling.
+**Scope:** latest dataset only (no historization); two source systems (CRM and ERP) loaded from CSV files.
 
-Raw data from two source systems (CRM and ERP, provided as CSV files) is loaded,
-cleaned and combined into a single data model that is ready for analysis.
+| Stage | Approach |
+|-------|----------|
+| Extract | Pull, full extraction, file parsing (CSV files via `BULK INSERT`) |
+| Transform | Data cleaning (duplicates, unwanted spaces, missing and invalid values, type casting), standardization, derived columns, business rules, integration of CRM and ERP data |
+| Load | Batch processing, full load (truncate and insert), SCD Type 1 (overwrite, no history) |
 
 ## Architecture
 
 The project follows the **Medallion Architecture**:
 
 ![Data Architecture](docs/data_architecture.png)
-
 *Diagram redrawn by me in Figma, based on the course.*
 
 | Layer | Purpose |
@@ -34,9 +36,25 @@ The project follows the **Medallion Architecture**:
 | **Silver** | Cleaned and standardized data |
 | **Gold** | Business-ready data modeled as a star schema for reporting and analytics |
 
+## Data Flow
+
+How data moves from the CRM and ERP source files through the Bronze, Silver and Gold layers:
+
+![Data Flow](docs/data_flow.png)
+*Diagram redrawn by me in Figma, based on the course.*
+
+## Data Model
+
+The Gold layer is a star schema: one fact table (`fact_sales`) and two dimensions (`dim_customers`, `dim_products`):
+
+![Data Model](docs/data_model.png)
+*Diagram redrawn by me in Figma, based on the course.*
+
+More diagrams are in the docs/ folder.
+
 ## Tech Stack
 
-- SQL Server
+- SQL Server 2022 or newer
 - SQL Server Management Studio (SSMS)
 - Git / GitHub
 - Figma (diagrams)
@@ -61,7 +79,7 @@ sql-data-warehouse-project/
 
 ## How to Run
 
-1. Install SQL Server and SSMS.
+1. Install SQL Server (2022 or newer, required for `DATETRUNC()`) and SSMS.
 2. Save the `datasets/` folder on your computer and update the six file paths
    in `scripts/bronze/proc_load_bronze.sql`.
 3. Run `scripts/init_database.sql` (**warning:** it drops and recreates the `DataWarehouse` database).
@@ -84,6 +102,10 @@ This was my first end-to-end data project. By building it I practiced:
 Writing the load stored procedures (`bronze.load_bronze`, `silver.load_silver`) was the most challenging part.
 Variables (`DECLARE`) for timing each load and `BEGIN TRY … BEGIN CATCH` for error handling were new to me;
 I now understand they make ETL runs easy to monitor and debug, and I plan to keep practicing them on my own examples.
+
+## Next Steps
+
+Next: exploratory data analysis on the Gold layer in sql-data-analytics-project.
 
 ## License
 
