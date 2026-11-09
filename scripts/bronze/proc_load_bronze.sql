@@ -18,8 +18,11 @@ Usage Example:
 Note:
     The BULK INSERT paths point to 'C:\sql\sql-data-warehouse-project\datasets\'.
     Change them to the folder where you saved the datasets.
+
+Based on: SQL Full Course by Baraa Khatib Salkini (Data With Baraa).
 ===============================================================================
 */
+
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 BEGIN
 	DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME;
