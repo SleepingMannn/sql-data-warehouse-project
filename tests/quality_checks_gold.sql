@@ -11,6 +11,8 @@ Script Purpose:
 
 Usage Notes:
     • Investigate and resolve any discrepancies found during the checks.
+
+Based on: SQL Full Course by Baraa Khatib Salkini (Data With Baraa).
 ===============================================================================
 */
 
