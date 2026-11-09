@@ -1,7 +1,7 @@
 /*
-===================================================================================================
+===============================================================================
 Database and Schemas Setup
-===================================================================================================
+===============================================================================
 Script Purpose:
     Creates a fresh 'DataWarehouse' database. If a database with this name already exists, 
     it is dropped and rebuilt from scratch. After that, the script creates three schemas inside it: 
@@ -10,6 +10,9 @@ Script Purpose:
 WARNING:
     This script permanently deletes the existing 'DataWarehouse' database together with all of its data. 
     Use it only in a development or learning environment, and make a backup first if you need to keep anything.
+
+Based on: SQL Full Course by Baraa Khatib Salkini (Data With Baraa).
+===============================================================================
 */
 
 USE master;
