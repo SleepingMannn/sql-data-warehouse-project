@@ -1,7 +1,7 @@
 /*
-===================================================================================
+===============================================================================
 DDL Script: Create Gold Views
-===================================================================================
+===============================================================================
 Purpose:
     Creates the Gold layer views (star schema): gold.dim_customers,
     gold.dim_products and gold.fact_sales, built from the Silver layer.
@@ -11,7 +11,9 @@ Purpose:
 
 WARNING:
     Existing views are dropped and recreated. Run after the Silver layer is loaded.
-===================================================================================
+
+Based on: SQL Full Course by Baraa Khatib Salkini (Data With Baraa).
+===============================================================================
 */
 
 -- ====================================
