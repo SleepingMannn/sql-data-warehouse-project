@@ -73,8 +73,6 @@ sql-data-warehouse-project/
 │   ├── silver/            # cleans and prepares the data
 │   └── gold/              # builds the tables for analysis (views)
 ├── tests/                 # data quality checks for silver and gold data
-├── LICENSE
-└── README.md
 ```
 
 ## How to Run
